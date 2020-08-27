@@ -1,10 +1,11 @@
 import React from "react";
 import {Search} from "react-bootstrap-icons";
 import "../styles/Search.css";
+// import SearchContext from "../utils/SearchContext";
 
 function SearchForm(props) {
   return (
-    <form>
+    <form onSubmit={props.handleFormSubmit}>
       <div className="form-row justify-content-md-center">
       <div className="form-group col-md-4 ">
         <input
@@ -30,7 +31,7 @@ function SearchForm(props) {
         </div>
         
         <div className="col-md-2">
-          <button onClick={props.handleFormSubmit} className="btn border-0 text-white search">
+          <button type="submit" className="btn border-0 text-white search">
           <Search/> Search
         </button>
       </div>

@@ -27,15 +27,11 @@ class GeniusSearch extends Component {
       .then(res => {
         this.setState({
         lyrics: res.data.lyrics
-      })
-    })
-      .then(() => {
+        })
         this.createWordsArray()
         console.log(this.state.words)
-        
-      })
-      .then(() => {
-        this.createWordMap(this.state.words, this.state.wordMap);
+        this.setState({wordMap: []})
+        this.createWordMap(this.state.words);
         console.log(this.state.wordMap);
       })
       .catch(err => console.log(err));
@@ -54,16 +50,30 @@ class GeniusSearch extends Component {
     }
   }
 
-  createWordMap = (words, wordMap) => {
+  createWordMap = (words) => {
+    let map = []
     for (const word of words) {
-      if (word in wordMap) {
-        wordMap[word]++
+      let index;
+      let matchingWord = map.filter(word => word.text === word);
+      //  wordMap.some(el => el.text === wordMap.text)
+      if (matchingWord.length === 0) {
+         index = map.indexOf(matchingWord[0]);
+         if(index !== -1) {
+           map[index].value++
+         }
       } else {
-        wordMap[word] = 1
+        map.push({
+          text: word,
+          value: 1
+        })
       }
     }
-    this.setState({wordMap});
+    console.log(map);
+    this.setState({wordMap: map});
     }
+
+    
+
 
     fontSizeMapper = word => Math.log2(word.value) * 5;
     rotate = word => word.value % 360;
@@ -98,11 +108,11 @@ class GeniusSearch extends Component {
         />
       <div>
 
-      <LyricCloud 
+      {/* <LyricCloud 
         data={this.state.wordMap}
         fontSizeMapper={this.fontSizeMapper}
         rotate={this.rotate}
-      />
+      /> */}
       </div>
       
      
