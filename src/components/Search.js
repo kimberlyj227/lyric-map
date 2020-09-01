@@ -3,14 +3,14 @@ import {Search} from "react-bootstrap-icons";
 import "../styles/Search.css";
 // import SearchContext from "../utils/SearchContext";
 
-function SearchForm(props) {
+function SearchForm({handleFormSubmit, handleInputChange, artist, title}) {
   return (
-    <form onSubmit={props.handleFormSubmit}>
+    <form onSubmit={handleFormSubmit}>
       <div className="form-row justify-content-md-center">
       <div className="form-group col-md-4 ">
         <input
-          onChange={props.handleInputChange}
-          value={props.artist}
+          onChange={handleInputChange}
+          value={artist}
           name="artist"
           type="text"
           className="form-control"
@@ -20,8 +20,8 @@ function SearchForm(props) {
         </div>
         <div className="form-group col-md-4 ">
           <input
-          onChange={props.handleInputChange}
-          value={props.title}
+          onChange={handleInputChange}
+          value={title}
           name="title"
           type="text"
           className="form-control"

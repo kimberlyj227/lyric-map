@@ -6,7 +6,7 @@ import SearchContext from "../utils/SearchContext";
 
 function LyricCloud() {
 const {lyricMap} = useContext(SearchContext);
-const fontSizeMapper = word => Math.log2(word.value) * 15;
+const fontSizeMapper = word => word.value * 10;
 const rotate = word => ((Math.random() *6 )-3) * 10
 
 // let data = [
