@@ -1,0 +1,29 @@
+.jumbotron {
+  background-image: url("./backgroundLyric.jpg");
+  background-size: cover;
+  font-family: 'Roboto', sans-serif;
+  vertical-align: middle;
+  height: 400px;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: 100%;
+  background-size: cover;
+  position: relative;
+  margin-bottom: 0;
+}
+
+.content {
+  background-color: rgba(3, 30, 54, 0.616);
+  padding: 40px;
+  text-align: center;
+  color: white
+}
+
+h1 {
+  font-family: "Poppins";
+  font-size: 65px !important;
+}
+
+p {
+  font-size: 20px;
+}
