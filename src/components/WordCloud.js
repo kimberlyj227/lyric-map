@@ -1,35 +1,28 @@
-import React, { useContext } from "react";
+import React, { useContext } from 'react';
 // import * as cloud from "d3-cloud";
-import WordCloud from "react-d3-cloud";
-import SearchContext from "../utils/SearchContext";
-
+import WordCloud from 'react-d3-cloud';
+import SearchContext from '../utils/SearchContext';
 
 function LyricCloud() {
-const {lyricMap} = useContext(SearchContext);
-const fontSizeMapper = word => word.value * 10;
-const rotate = word => ((Math.random() *6 )-3) * 10
+	const { lyricMap } = useContext(SearchContext);
+	const fontSizeMapper = (word) => word.value * 10;
+	const rotate = (word) => (Math.random() * 6 - 3) * 10;
 
-// let data = [
-//   {text: "bob", value: 2},
-//   {text:"kittens", value: 10},
-//   {text: "hello", value: 9},
-//   {text: "mittens", value: 40},
-//   {text: "shittens", value: 100},
-//   {text: "mountains", value: 50},
-//   {text: "seattle", value: 10},
-// ]
-  
-  return (
-  <WordCloud
-      data={lyricMap}
-      fontSizeMapper={fontSizeMapper}
-      font={"Roboto"}
-      color={"#000000"}
-      width={1000}
-      height={800}
-      // rotate={rotate}
-      /> 
-  )
+	return (
+		<WordCloud
+			data={lyricMap}
+			fontSize={(word) => word.value * 10}
+			font={'Roboto'}
+			color={'#000000'}
+			width={800}
+			height={500}
+			// rotate={rotate}
+			spiral='rectangular'
+			rotate={(word) => rotate(word)}
+			padding={5}
+			random={Math.random}
+		/>
+	);
 }
 
 export default LyricCloud;
